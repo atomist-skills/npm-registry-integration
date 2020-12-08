@@ -3,6 +3,6 @@
 
 (def module-name "npm-registry-integration")
 (def path ".")
-(def version "0.1.1")
-(def tag "0.1.1")
-(def generated-at "2020-12-08T19:57:19Z")
+(def version "0.1.3")
+(def tag "0.1.3")
+(def generated-at "2020-12-08T20:10:37Z")
