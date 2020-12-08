@@ -21,24 +21,19 @@
  :author "slimslenderslacks"
  :license "unknown"
  :iconUrl "https://images.atomist.com/rug/atomist.png"
- :parameters [{:secret {:name "password"
-                        :displayName "Password"
-                        :description "Npm Registry password"
+ :parameters [{:secret {:name "auth-token"
+                        :displayName "Auth Token"
+                        :description "Npm Registry Auth Token"
                         :lineStyle "single"
-                        :required true}}
-              {:string {:name "username"
-                        :displayName "Username"
-                        :description "Npm Registry Account Username"
                         :required true}}
               {:string {:name "url"
                         :displayName "Repository Url"
                         :description "Npm Registry Url"
                         :required true}}
-              {:stringArray {:name "groups"
-                             :description "Optionally restrict deployments to these scopes."
-                             :minRequired 0
-                             :pattern "^[\\S+]$"
-                             :required false}}]
+              {:string {:name "scope"
+                        :description "Optionally restrict deployments to this scope"
+                        :pattern "^[\\S+]$"
+                        :required false}}]
  :capabilities {:provides [{:name "NpmRegistry"
                             :namespace "atomist"}]}
  :artifacts {:gcf [{:name "npm-registry-integration",
