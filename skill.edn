@@ -1,0 +1,48 @@
+;; Copyright © 2020 Atomist, Inc.
+;;
+;; Licensed under the Apache License, Version 2.0 (the "License");
+;; you may not use this file except in compliance with the License.
+;; You may obtain a copy of the License at
+;;
+;;     http://www.apache.org/licenses/LICENSE-2.0
+;;
+;; Unless required by applicable law or agreed to in writing, software
+;; distributed under the License is distributed on an "AS IS" BASIS,
+;; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;; See the License for the specific language governing permissions and
+;; limitations under the License.
+
+{:integration true
+ :namespace "atomist"
+ :homepageUrl "https://github.com/atomist-skills/npm-registry-integration"
+ :name "npm-registry-integration"
+ :displayName "Npm Registry Integration"
+ :description "This section supports markdown"
+ :author "slimslenderslacks"
+ :license "unknown"
+ :iconUrl "https://images.atomist.com/rug/atomist.png"
+ :parameters [{:secret {:name "password"
+                        :displayName "Password"
+                        :description "Npm Registry password"
+                        :lineStyle "single"
+                        :required true}}
+              {:string {:name "username"
+                        :displayName "Username"
+                        :description "Npm Registry Account Username"
+                        :required true}}
+              {:string {:name "url"
+                        :displayName "Repository Url"
+                        :description "Npm Registry Url"
+                        :required true}}
+              {:stringArray {:name "groups"
+                             :description "Optionally restrict deployments to these scopes."
+                             :minRequired 0
+                             :pattern "^[\\S+]$"
+                             :required false}}]
+ :capabilities {:provides [{:name "NpmRegistry"
+                            :namespace "atomist"}]}
+ :artifacts {:gcf [{:name "npm-registry-integration",
+                    :runtime "nodejs10",
+                    :memory 512,
+                    :timeout 60,
+                    :entryPoint "eventhandler"}]}}
